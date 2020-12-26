@@ -77,31 +77,48 @@ _Note: Use the [Markdown Table Generator](http://www.tablesgenerator.com/markdow
 
 The machines on the internal network are not exposed to the public Internet. 
 
-Only the _____ machine can accept connections from the Internet. Access to this machine is only allowed from the following IP addresses:
-- _TODO: Add whitelisted IP addresses_
+Only the Jump box machine can accept connections from the Internet. Access to this machine is only allowed from the following IP addresses:
+- 76.66.108.155, 74.66.109.543 
 
-Machines within the network can only be accessed by _____.
-- _TODO: Which machine did you allow to access your ELK VM? What was its IP address?_
+Machines within the network can only be accessed by Machines on the internal network.
+- You can only access the elk machine from within the ansible container in the jump box "ip address 10.0.0.4" via ssh login. 
 
 A summary of the access policies in place can be found in the table below.
 
 | Name       | publicly accessible | Allowed Ip Addresses         |
 |------------|---------------------|------------------------------|
 | Jump box   | Yes/ via SSh        | 76.66.108.155, 74.66.109.543 |
-| Web1/DVWA  | No                  | 10.0.0.4, 10.0.0.6, 10.1.0.4 |
-| Web2/DVWA  | No                  | 10.0.0.4, 10.0.0.5, 10.1.0.4 |
-| ELK server | No                  | 10.0.0.4, 10.0.0.6, 10.0.0.5 |
+| Web1/DVWA  | No                  | 10.0.0.4                     |
+| Web2/DVWA  | No                  | 10.0.0.4                     |
+| ELK server | No                  | 10.0.0.4                     |
 
 ### Elk Configuration
 
 Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because...
-- _TODO: What is the main advantage of automating configuration with Ansible?_
+- In the event that there was a breach or disaster and the system got compromised, you can easily reuse the playbook to redeploy programs or run update on a system. It also helps to avoid time wasting on having to type every code or commands manually anytime you need to make changes or update the system. Ansible playbook can automate all of these tasks in one shot.
 
 The playbook implements the following tasks:
-- _TODO: In 3-5 bullets, explain the steps of the ELK installation play. E.g., install Docker; download image; etc._
-- ...
-- ...
 
+-    ---
+     - name: Configure Elk VM with Docker
+     - hosts: elkservers
+
+     - name: Install docker.io
+
+     - name: Install python3-pip
+     
+      - name: increase virtual memory
+        sysctl:
+        name: vm.max_map_count
+
+      - name: download and launch a docker elk container
+        docker_container:
+        name: elk
+        image: sebp/elk:761
+        state: started
+        restart_policy: always
+
+    
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
 
 ![TODO: Update the path with the name of your screenshot of docker ps output](Images/docker_ps_output.png)
