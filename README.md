@@ -97,53 +97,44 @@ A summary of the access policies in place can be found in the table below.
 Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because...
 - In the event that there was a breach or disaster and the system got compromised, you can easily reuse the playbook to redeploy programs or run update on a system. It also helps to avoid time wasting on having to type every code or commands manually anytime you need to make changes or update the system. Ansible playbook can automate all of these tasks in one shot.
 
-The playbook implements the following tasks:
+###### The playbook implements the following tasks:
 
--    ---
-     - name: Configure Elk VM with Docker
-     - hosts: elkservers
-
-     - name: Install docker.io
-
-     - name: Install python3-pip
-     
-      - name: increase virtual memory
-        sysctl:
-        name: vm.max_map_count
-
-      - name: download and launch a docker elk container
-        docker_container:
-        name: elk
-        image: sebp/elk:761
-        state: started
-        restart_policy: always
+-  Configures Elk VM with Docker
+-  Installs docker
+-  Installs python3-pip
+-  Increases virtual memory
+-  Download and launches a docker elk container
+-  Creates docker images
 
     
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
 
-![TODO: Update the path with the name of your screenshot of docker ps output](Images/docker_ps_output.png)
+![TODO: Update the path with the name of your screenshot of docker ps output](images/docker.png)
 
 ### Target Machines & Beats
 This ELK server is configured to monitor the following machines:
-- _TODO: List the IP addresses of the machines you are monitoring_
+-   10.0.0.5
+-   10.0.0.6
 
 We have installed the following Beats on these machines:
-- _TODO: Specify which Beats you successfully installed_
+-   filebeat
+-   metricbeat
 
 These Beats allow us to collect the following information from each machine:
-- _TODO: In 1-2 sentences, explain what kind of data each beat collects, and provide 1 example of what you expect to see. E.g., `Winlogbeat` collects Windows logs, which we use to track user logon events, etc._
+-  Filebeat collects and monitors all system log files e.g, failed auth logs which can be used to determine how many failed login attempts has been recorded and the location these attempts were made.
+-  Metricbeat monitors the health of the system and collects infomation such as e.g, Sys memory which can be used to determine how much space has left. 
 
 ### Using the Playbook
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned: 
 
 SSH into the control node and follow the steps below:
-- Copy the _____ file to _____.
-- Update the _____ file to include...
-- Run the playbook, and navigate to ____ to check that the installation worked as expected.
+- Copy the /etc/ansible/filebeat-config.yml file to  /etc/filebeat/filebeat.yml
+- Update the filebeat.yml file to include...
+- Run the playbook, and navigate to the destination machine or server to check that the installation worked as expected.
 
 _TODO: Answer the following questions to fill in the blanks:_
-- _Which file is the playbook? Where do you copy it?_
-- _Which file do you update to make Ansible run the playbook on a specific machine? How do I specify which machine to install the ELK server on versus which to install Filebeat on?_
-- _Which URL do you navigate to in order to check that the ELK server is running?
+- _Which file is the playbook? ANS= YAML file.  Where do you copy it? ANS= from /etc/ansible/
+- _Which file do you update to make Ansible run the playbook on a specific machine? ANS= the Yaml file you created.   How do I specify which machine to install the ELK server on versus which to install Filebeat on? ANS= for elk you specify it this way in your yaml file, hosts: elkservers while for the filebeat is also similar, host: webservers 
+- _Which URL do you navigate to in order to check that the ELK server is running? ANS= 20.55.103.105:5601
 
 _As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
