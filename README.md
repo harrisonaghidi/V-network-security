@@ -23,31 +23,31 @@ These files have been tested and used to generate a live ELK deployment on Azure
 
 
  
- - name: install filebeat deb
- - command: dpkg -i filebeat-7.4.0-amd64.deb
+    - name: install filebeat deb
+    - command: dpkg -i filebeat-7.4.0-amd64.deb
 
 
 
 
- - name: drop in filebeat.yml 
- - copy:
- - src: /etc/ansible/filebeat-config.yml
- - dest: /etc/filebeat/filebeat.yml
+    - name: drop in filebeat.yml 
+    - copy:
+    - src: /etc/ansible/filebeat-config.yml
+    - dest: /etc/filebeat/filebeat.yml
 
 
 
 
- - name: enable and configure system module
- - command: filebeat modules enable system
- - name: setup filebeat
- - command: filebeat setup
+    - name: enable and configure system module
+    - command: filebeat modules enable system
+    - name: setup filebeat
+    - command: filebeat setup
 
 
 
 
 
- - name: start filebeat service
- - command: service filebeat start
+    - name: start filebeat service
+    - command: service filebeat start
 
 
 
