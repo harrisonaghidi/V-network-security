@@ -59,19 +59,19 @@ The main purpose of this network is to expose a load-balanced and monitored inst
 Load balancing ensures that traffic coming into the website are evenly distributed across multiple servers behind it, in addition to restricting public access directly to the network.
 - Load balancers provides another level of security to webservers by providing a website an external IP address that is accessed by the internet. The load balancer receives any traffic that comes into the website and distributes it across multiple servers which also could help to mitigate DoS attacks. One advantage of the Jump box is that It controls access to other machines "webservers" by allowing connections from specific IP addresses and forwarding to those machines, using ssh key to access the jump box is another advantage.
 
-Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the _____ and system _____.
-- _TODO: What does Filebeat watch for?_
-- _TODO: What does Metricbeat record?_
+Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the files and system logs.
+- Filebeat helps generate and organize log files to send to Logstash and Elasticsearch. Specifically, it logs information about the file system, including which files have changed and when
+- Metricbeat is extremely easy to use which allows you to monitor your system and the processes running on it.
 
 The configuration details of each machine may be found below.
 _Note: Use the [Markdown Table Generator](http://www.tablesgenerator.com/markdown_tables) to add/remove values from the table_.
 
-| Name     | Function | IP Address | Operating System |
-|----------|----------|------------|------------------|
-| Jump Box | Gateway  | 10.0.0.1   | Linux            |
-| TODO     |          |            |                  |
-| TODO     |          |            |                  |
-| TODO     |          |            |                  |
+| Name        | Function   | Ip Address | Operating System |
+|-------------|------------|------------|------------------|
+| Jump box    | Gateway    | 10.0.0.4   | linux            |
+| Web1/DVWA   | webserver  | 10.0.0.5   | linux            |
+| Web2/DVWA   | Websever   | 10.0.0.6   | linux            |
+| ELK machine | ELk server | 10.1.0.4   | linux            |
 
 ### Access Policies
 
@@ -85,11 +85,12 @@ Machines within the network can only be accessed by _____.
 
 A summary of the access policies in place can be found in the table below.
 
-| Name     | Publicly Accessible | Allowed IP Addresses |
-|----------|---------------------|----------------------|
-| Jump Box | Yes/No              | 10.0.0.1 10.0.0.2    |
-|          |                     |                      |
-|          |                     |                      |
+| Name       | publicly accessible | Allowed Ip Addresses         |
+|------------|---------------------|------------------------------|
+| Jump box   | Yes/ via SSh        | 76.66.108.155, 74.66.109.543 |
+| Web1/DVWA  | No                  | 10.0.0.4, 10.0.0.6, 10.1.0.4 |
+| Web2/DVWA  | No                  | 10.0.0.4, 10.0.0.5, 10.1.0.4 |
+| ELK server | No                  | 10.0.0.4, 10.0.0.6, 10.0.0.5 |
 
 ### Elk Configuration
 
