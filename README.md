@@ -10,15 +10,15 @@ These files have been tested and used to generate a live ELK deployment on Azure
 
 
 -  ---
- -  name: installing and launching filebeat
- -  hosts: webservers
- -  become: yes
- -  tasks:
+    -  name: installing and launching filebeat
+    -  hosts: webservers
+    -  become: yes
+    -  tasks:
 
 
 
- - name: download filebeat deb
- - command: curl -L -O https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-7.6.1-amd64.deb
+    - name: download filebeat deb
+    - command: curl -L -O https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-7.6.1-amd64.deb
 
 
 
@@ -64,10 +64,10 @@ This document contains the following details:
 
 ### Description of the Topology
 
-The main purpose of this network is to expose a load-balanced and monitored instance of DVWA, the D*mn Vulnerable Web Application.
+The main purpose of this network is to expose a load-balanced and monitored instance of DVWA, the Damn Vulnerable Web Application.
 
-Load balancing ensures that traffic coming into the website are evenly distributed across multiple servers hehind it, in addition to restricting public access directly to the network.
-- Load balancers provides another level of security to webservers by providing a website an external IP address that is accessed by the internet. The load balancer receives any traffic that comes into the website and distributes it across multiple servers which also could help to mitigate a DoS attacks. One advantage of the Jump box is that It controls access to other machines "webservers" by allowing connections from specific IP addresses and forwarding to those machines, using ssh key to access the jump box is another advantage.
+Load balancing ensures that traffic coming into the website are evenly distributed across multiple servers behind it, in addition to restricting public access directly to the network.
+- Load balancers provides another level of security to webservers by providing a website an external IP address that is accessed by the internet. The load balancer receives any traffic that comes into the website and distributes it across multiple servers which also could help to mitigate DoS attacks. One advantage of the Jump box is that It controls access to other machines "webservers" by allowing connections from specific IP addresses and forwarding to those machines, using ssh key to access the jump box is another advantage.
 
 Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the _____ and system _____.
 - _TODO: What does Filebeat watch for?_
