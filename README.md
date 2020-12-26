@@ -16,17 +16,12 @@ These files have been tested and used to generate a live ELK deployment on Azure
     -  tasks:
 
 
-
     - name: download filebeat deb
     - command: curl -L -O https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-7.6.1-amd64.deb
-
-
-
  
+
     - name: install filebeat deb
     - command: dpkg -i filebeat-7.4.0-amd64.deb
-
-
 
 
     - name: drop in filebeat.yml 
@@ -35,15 +30,10 @@ These files have been tested and used to generate a live ELK deployment on Azure
     - dest: /etc/filebeat/filebeat.yml
 
 
-
-
     - name: enable and configure system module
     - command: filebeat modules enable system
     - name: setup filebeat
     - command: filebeat setup
-
-
-
 
 
     - name: start filebeat service
@@ -53,7 +43,7 @@ These files have been tested and used to generate a live ELK deployment on Azure
 
 
 
-This document contains the following details:
+##### This document contains the following details:
 - Description of the Topologu
 - Access Policies
 - ELK Configuration
