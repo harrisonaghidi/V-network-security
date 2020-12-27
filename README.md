@@ -32,12 +32,12 @@ Integrating an ELK server allows users to easily monitor the vulnerable VMs for 
 The configuration details of each machine may be found below.
 _Note: Use the [Markdown Table Generator](http://www.tablesgenerator.com/markdown_tables) to add/remove values from the table_.
 
-| Name        | Function   | Ip Address | Operating System |
-|-------------|------------|------------|------------------|
-| Jump box    | Gateway    | 10.0.0.4   | linux            |
-| Web1/DVWA   | webserver  | 10.0.0.5   | linux            |
-| Web2/DVWA   | Websever   | 10.0.0.6   | linux            |
-| ELK machine | ELk server | 10.1.0.4   | linux            |
+| Name     | Function   | Ip address              | operating system |
+|----------|------------|-------------------------|------------------|
+| Jump box | Gateway    | 40.78.126.250  10.0.0.4 | linux            |
+| Web1     | DVWA       | 10.0.0.5                | Linux            |
+| Web2     | DVWA       | 10.0.0.6                | Linux            |
+| Elk      | ElK Server | 20.55.103.105  10.1.0.4 | Linux            |
 
 ### Access Policies
 
@@ -64,6 +64,7 @@ Ansible was used to automate configuration of the ELK machine. No configuration 
 - In the event that there was a breach or disaster and the system got compromised, you can easily reuse the playbook to redeploy programs or run update on a system. It also helps to avoid time wasting on having to type every code or commands manually anytime you need to make changes or update the system. Ansible playbook can automate all of these tasks in one shot.
 
 ###### The playbook implements the following tasks:
+![elk-playbook.yml](images/elk-playbook.yml)
 
 -  Configures Elk VM with Docker
 -  Installs docker
@@ -71,6 +72,7 @@ Ansible was used to automate configuration of the ELK machine. No configuration 
 -  Increases virtual memory
 -  Download and launches a docker elk container
 -  Creates docker images
+
 
     
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
