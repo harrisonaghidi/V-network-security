@@ -1,7 +1,7 @@
 ---
 - name: Configure Elk VM with Docker
   hosts: elkservers
-  remote_user: hadmin
+  remote_user: your_user_name
   become: true
   tasks:
     # Use apt module
