@@ -8,6 +8,8 @@ These files have been tested and used to generate a live ELK deployment on Azure
 
 ![filebeat-playbook](images/playbook.txt)
 
+####### Because you are installing filebeat and metricbeat to your Web1 and Web1 server which will be monitored my the elk server, you need to make changes to the filebeat and metricbeat config file. Below is the link to the changes you need to make in the file in order to enable the elk server to collect data from Web1 and Web2 servers. 
+![config-changes](images/config-changes)
 
 ##### This document contains the following details:
 - Description of the Topologu
@@ -104,5 +106,6 @@ _TODO: Answer the following questions to fill in the blanks:_
 - _Which file is the playbook? ANS= YAML file.  Where do you copy it? ANS= from /etc/ansible/
 - _Which file do you update to make Ansible run the playbook on a specific machine? ANS= the Yaml file you created.   How do I specify which machine to install the ELK server on versus which to install Filebeat on? ANS= for elk you specify it this way in your yaml file, hosts: elkservers while for the filebeat is also similar, host: webservers 
 - _Which URL do you navigate to in order to check that the ELK server is running? ANS= 20.55.103.105:5601
+
 
 _As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
