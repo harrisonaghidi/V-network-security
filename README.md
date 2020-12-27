@@ -101,7 +101,7 @@ We have installed the following Beats on these machines:
 
 These Beats allow us to collect the following information from each machine:
 -  Filebeat collects and monitors all system log files e.g, failed auth logs which can be used to determine how many failed login attempts has been recorded and the location these attempts were made.
--  Metricbeat monitors the health of the system and collects infomation such as e.g, Sys memory which can be used to determine how much space has left. 
+-  Metricbeat monitors the health of the system and collects infomation such as e.g, System memory usage which can be used to determine how much space a system has left, etc. 
 
 ### Using the Playbook
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned: 
