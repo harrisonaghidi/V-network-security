@@ -1,9 +1,9 @@
-# search using key words like setup.kibana to locate this line and type in ur elk private ip add.
+# search using key words like setup.kibana to locate this line and type in ur elk private ip add along with the published port.
 setup.kibana:
   host: "10.1.0.4:5601"
 
 
-# search using key words like changeme to locate this line and then make some changes
+# search using key words like changeme to locate this line and then make some changes as shown below depending on what your elk ip and published port is.
 
 output.elasticsearch:
   # Boolean flag to enable or disable the output module.
