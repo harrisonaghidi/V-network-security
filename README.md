@@ -38,12 +38,13 @@ Integrating an ELK server allows users to easily monitor the vulnerable VMs for 
 The configuration details of each machine may be found below.
 _Note: Use the [Markdown Table Generator](http://www.tablesgenerator.com/markdown_tables) to add/remove values from the table_.
 
-| Name     | Function   | Ip address              | operating system |
-|----------|------------|-------------------------|------------------|
-| Jump box | Gateway    | 40.78.126.250  10.0.0.4 | linux            |
-| Web1     | DVWA       | 10.0.0.5                | Linux            |
-| Web2     | DVWA       | 10.0.0.6                | Linux            |
-| Elk      | ElK Server | 20.55.103.105  10.1.0.4 | Linux            |
+| Name     | Function      | Ip address              | operating system |
+|----------|---------------|-------------------------|------------------|
+| Jump box | Gateway       | 40.78.126.250  10.0.0.4 | linux            |
+| Web1     | DVWA          | 10.0.0.5                | Linux            |
+| Web2     | DVWA          | 10.0.0.6                | Linux            |
+| Elk      | ElK Server    | 20.55.103.105  10.1.0.4 | Linux            |
+| LBT      | Load Balancer | 40.78.13.189            |                  |
 
 ### Access Policies
 
@@ -57,12 +58,13 @@ Machines within the network can only be accessed by Machines on the internal net
 
 A summary of the access policies in place can be found in the table below.
 
-| Name       | publicly accessible | Allowed Ip Addresses         |
-|------------|---------------------|------------------------------|
-| Jump box   | Yes/ via SSh        | 76.66.108.155, 74.66.109.543 |
-| Web1/DVWA  | No                  | 10.0.0.4                     |
-| Web2/DVWA  | No                  | 10.0.0.4                     |
-| ELK server | No                  | 10.0.0.4                     |
+| Name              | Publicly accessible | allowed Ip Addresses         |
+|-------------------|---------------------|------------------------------|
+| Jump box          | Yes, via SSH        | 76.66.108.155, 74.66.109.543 |
+| Web1/DVWA         | No                  | 10.0.0.4                     |
+| Web2/DVWA         | No                  | 10.0.0.4                     |
+| Elk Server        | No                  | 10.0.0.4                     |
+| LBT/Load Balancer | Yes                 | Internet                     |
 
 ### Elk Configuration
 
@@ -70,7 +72,6 @@ Ansible was used to automate configuration of the ELK machine. No configuration 
 - In the event that there was a breach or disaster and the system got compromised, you can easily reuse the playbook to redeploy programs or run update on a system. It also helps to avoid time wasting on having to type every code or commands manually anytime you need to make changes or update the system. Ansible playbook can automate all of these tasks in one shot.
 
 ###### The playbook implements the following tasks:
-![elk-playbook.yml](images/elk-playbook.yml)
 
 -  Configures Elk VM with Docker
 -  Installs docker
@@ -78,6 +79,10 @@ Ansible was used to automate configuration of the ELK machine. No configuration 
 -  Increases virtual memory
 -  Download and launches a docker elk container
 -  Creates docker images
+
+##### below is the complete playbook file to automate configuration of the ELK machine:
+![elk-playbook.yml](images/elk-playbook.yml)
+
 
 
     
