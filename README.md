@@ -8,7 +8,7 @@ These files have been tested and used to generate a live ELK deployment on Azure
 
 ![filebeat-playbook](images/playbook.txt)
 
-#### Because you are installing filebeat and metricbeat to your Web1 and Web2 servers which will be monitored my the elk server, you need to make changes to both filebeat and metricbeat files . Below is the link to the changes you need to make in the file in order to enable the elk server collect data from Web1 and Web2 servers. 
+#### Because you are installing filebeat and metricbeat to your Web1 and Web2 servers which will be monitored my the elk server, you need to make changes to both filebeat and metricbeat config files . Below is the link to the changes you need to make in the file in order to enable the elk server collect data from Web1 and Web2 servers. 
 
 ![configuration-changes](images/config-changes)
 
