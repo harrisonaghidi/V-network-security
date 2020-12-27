@@ -24,6 +24,9 @@ Because you are installing filebeat and metricbeat to your Web1 and Web2 servers
 ### Description of the Topology
 
 The main purpose of this network is to expose a load-balanced and monitored instance of DVWA, the Damn Vulnerable Web Application.
+###### Below is the playbook of how i installed and deployed the DVWA  to my web1 and Web2 VMs from my Jump box using ansible. 
+
+![deploying-DVWA-from-jump-box-to-web1-web2](images/my-dvwa-playbook.yml)
 
 Load balancing ensures that traffic coming into the website are evenly distributed across multiple servers behind it, in addition to restricting public access directly to the network.
 - Load balancers provides another level of security to webservers by providing a website an external IP address that is accessed by the internet. The load balancer receives any traffic that comes into the website and distributes it across multiple servers which also could help to mitigate DoS attacks. One advantage of the Jump box is that It controls access to other machines "webservers" by allowing connections from specific IP addresses and forwarding to those machines, using ssh key to access the jump box is another advantage.
